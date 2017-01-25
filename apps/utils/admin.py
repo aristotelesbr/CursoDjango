@@ -1,6 +1,6 @@
 from django.contrib import admin
-from . models import Regiao
+from . models import Regiao, Estado, Cidade
 
 admin.site.register(Regiao)
-
-# Register your models here.
+admin.site.register(Estado)
+admin.site.register(Cidade)
