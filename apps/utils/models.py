@@ -9,6 +9,8 @@ class Regiao(models.Model):
 	class Meta:
 		verbose_name = "Região"
 		verbose_name_plural = "Regiões"
+		# Altera o nome da tabela
+		# db_table = "Novo nome para tabela"
 
 	def __str__(self):
 		return "{n}({s})".format(n = self.nome, s = self.sigla)
