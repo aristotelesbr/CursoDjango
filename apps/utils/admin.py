@@ -2,23 +2,24 @@ from django.contrib import admin
 from . models import Regiao, Estado, Cidade
 
 # INLINES
-# TabularInline -> Muda a tabulação na exibição da lista
-# StackedInline -> Muda a tabulação na exibição da lista
 class EstadoInline(admin.TabularInline):
+	# TabularInline -> Muda a tabulação na exibição da lista
+	# StackedInline -> Muda a tabulação na exibição da lista
 	model = Estado
 	# Remove os campos adicionais criado com nestendForm
-	extra = 0
+	extra = 1
 
 
 class CidadeInline(admin.StackedInline):
 	model = Cidade
 	# Remove os campos adicionais criado com nestendForm
-	extra = 0
+	extra = 1
 
 
 # MODEL ADMIN
 class EstadoAdmin(admin.ModelAdmin):
 	list_display = ('nome', 'sigla', 'regiao')
+	# Exibe um filtro
 	list_filter = ('regiao',)
 	inlines = [
 		CidadeInline,

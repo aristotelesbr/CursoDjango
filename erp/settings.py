@@ -45,6 +45,7 @@ DJANG_APPS = [
 # Lista costumizada
 ERP_APPS = [
     'utils.apps.UtilsConfig',
+    'estoque.apps.EstoqueConfig',
 ]
 
 INSTALLED_APPS = DJANG_APPS + ERP_APPS
