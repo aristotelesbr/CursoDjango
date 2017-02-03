@@ -1,6 +1,4 @@
 from django.db import models
-
-from django.db import models
 from utils.models import Cidade
 
 class Fabricante(models.Model):
@@ -16,6 +14,17 @@ class Fabricante(models.Model):
 
 	def __str__(self):
 		return "{nome}".format(nome = self.nome)
+
+
+class Categoria(models.Model):
+	nome = models.CharField(max_length = 32, unique = True)
+
+	class Meta:
+		verbose_name = "Categoria"
+		verbose_name_plural = "Categorias"
+
+	def __str__(self):
+		return "{n}".format(n = self.nome)
 
 
 class Marca(models.Model):
@@ -34,6 +43,7 @@ class Produto(models.Model):
 	nome = models.CharField(max_length = 32, unique = True)
 	cod = models.CharField(max_length = 64, unique = True)
 	marca = models.ForeignKey(Marca)
+	categoria = models.ForeignKey(Categoria)
 
 	class Meta:
 		verbose_name = "Produto"

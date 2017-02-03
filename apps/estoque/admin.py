@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Fabricante, Marca, Produto
+from . models import Fabricante, Marca, Produto, Categoria
 
 # INLINES
 class MarcaInline(admin.StackedInline):
@@ -19,7 +19,7 @@ class FabricanteAdmin(admin.ModelAdmin):
 	# Gera o nestendForm
 	inlines = [
 		MarcaInline,
-		]
+	]
 
 
 class MarcaAdmin(admin.ModelAdmin):
@@ -27,9 +27,14 @@ class MarcaAdmin(admin.ModelAdmin):
 	list_filter = ('fabricante',)
 	inlines = [
 		ProdutoInline,
-		]
+	]
 
+
+class ProdutoAdmin(admin.ModelAdmin):
+	# "marca__fabibricante" Busca todos as marcas atraves do fabricante
+	list_filter = ('marca', 'marca__fabricante')
 
 admin.site.register(Fabricante, FabricanteAdmin)
 admin.site.register(Marca, MarcaAdmin)
-admin.site.register(Produto)
+admin.site.register(Produto, ProdutoAdmin)
+admin.site.register(Categoria)
