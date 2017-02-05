@@ -9,5 +9,6 @@ def home(request):
 	context = {
 		'prods':produtos,
 		'sub_titulo': "Estoque",
+		'logo' : "ERP",
 	}
 	return HttpResponse(template.render(context, request))
