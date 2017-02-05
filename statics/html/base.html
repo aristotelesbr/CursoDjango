@@ -19,36 +19,45 @@
 	<title>ERP - {{ sub_titulo }}</title>    
 </head>
 
-<body grey lighten-3>
+<body>
 
 	<!-- CABECALHO -->
 	{% include 'cabecalho.html' %}
 
 	<!-- CONTEUDO -->
-	<div class="conteudo ">
+	<div class="section">
 		<ul class="collapsible" data-collapsible="accordion">
 		  <li>
-		    <div class="collapsible-header"><span class="new badge">4</span><i class="material-icons">filter_drama</i>First</div>
-		    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+			<div class="collapsible-header"><span class="new badge">4</span><i class="material-icons">contact_phone</i>Contatos</div>
+			<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
 		  </li>
 		  <li>
-		    <div class="collapsible-header"><span class="badge">1</span><i class="material-icons">place</i>Second</div>
-		    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+			<div class="collapsible-header"><span class="badge">1</span><i class="material-icons">grade</i>Favoritos</div>
+			<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
 		  </li>
+
 		</ul>
-		{% block conteudo %}
-		<p>Conteúdo aqui!</p>
-		{% endblock %}
 	</div>
 
-	<!-- Cards -->
-	<div class="row">
-		{% include 'cards.html' %}
+	<div class="section">
+		<div class="row">
+			{% include 'menu-button.html'%}
+			<div class="col s10">
+				{% block conteudo %}
+					<p>Conteúdo aqui!</p>
+				{% endblock %}
+			</div>
+			<!-- Cards -->
+			<div class="col s2">
+				{% include 'cards.html' %}
+			</div>
+		</div>
 	</div>
 	<!-- Fim -->
 
 	<!-- RODAPE -->
-	<div class="rodape">
+
+	<div class="section">
 		{% include 'rodape.html' %}
 	</div>
 </body>

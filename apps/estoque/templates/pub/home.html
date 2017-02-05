@@ -1,10 +1,25 @@
 {% extends 'base.html'%}
 
 {% block conteudo %}
-	<ul>
-		{% for p in prods%}
-			<li>{{p}}</li>
-		{% endfor%}
-	</ul>
-	
+<table class="responsive-table highlight">
+	<thead>
+		<tr>
+			<th data-field="id">Nome</th>
+			<th data-field="code">Código</th>
+			<th data-field="brand">Marca</th>
+			<th data-field="category">Categoria</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for p in prods %}
+		<tr>
+			<td>{{p.nome}}</td>
+			<td>{{p.codigo}}</td>
+			<td>{{p.marca.nome}}</td>
+			<td>{{p.categoria.nome}}</td>
+		</tr>
+	</tbody>
+		{% endfor %}
+</table>
+
 {% endblock %}
