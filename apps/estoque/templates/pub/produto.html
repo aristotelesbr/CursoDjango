@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+
+{% block conteudo %}
+	<h3> {{ produto }} </h3>
+	<ul>
+		
+		<li>Categoria: <a href="{{ produto.categoria.get_absolute_url }}">{{ produto.categoria }}</a> </li>
+		<li>Marca: {{ produto.marca }}</li>
+		<li>Fabricante: {{ produto.marca.fabricante }}</li>
+	</ul>
+{% endblock %}

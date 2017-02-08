@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from utils.models import Cidade
 
 class Fabricante(models.Model):
@@ -25,6 +26,9 @@ class Categoria(models.Model):
 	def __str__(self):
 		return "{n}".format(n = self.nome)
 
+	def get_absolute_url(self):
+		return reverse('estoque:categoria', kwargs={'id':self.id})
+
 
 class Marca(models.Model):
 	nome = models.CharField(max_length = 32, unique = True)
@@ -50,6 +54,14 @@ class Produto(models.Model):
 
 	def __str__(self):
 		return "{n}".format(n = self.nome)
+
+		def fabricante(self):
+			return self.marca.fabricante
+
+	# 1º Passo, criando a função para o uso de namespace
+	def get_absolute_url(self):
+		return reverse('estoque:produto', kwargs={'id':self.id})
+		#"/estoque/produto/{cod}".format(cod=self.codigo)
 
 
 class Lote(models.Model):

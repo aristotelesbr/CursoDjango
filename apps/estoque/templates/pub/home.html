@@ -13,10 +13,10 @@
 	<tbody>
 		{% for p in prods %}
 		<tr>
-			<td>{{p.nome}}</td>
+			<td><a href="{{ p.get_absolute_url }}">{{p}}</a></td>
 			<td>{{p.codigo}}</td>
 			<td>{{p.marca.nome}}</td>
-			<td>{{p.categoria.nome}}</td>
+			<td>{{ p.categoria }}</td>
 		</tr>
 	</tbody>
 		{% endfor %}
